@@ -9,42 +9,41 @@ import { About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Produ
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout />,
+    Component: HomeLayout,
     children: [
       {
         index: true,
-        element: <Landing />,
-        errorElement: <Error />
+        Component: Landing
       },
       {
         path: "about",
-        element: <About />
+        Component: About
       },
       {
         path: "cart",
-        element: <Cart />
+        Component: Cart
       },
       {
         path: "checkout",
-        element: <Checkout />
+        Component: Checkout
       },
       {
         path: "orders",
-        element: <Orders />
+        Component: Orders
       },
       {
         path: "products",
-        element: <Products />
+        Component: Products
       }
     ]
   },
   {
     path: "/login", 
-    element: <Login />
+    Component: Login
   },
   {
     path: "/register",
-    element: <Register />
+    Component: Register
   }
 ])
 
