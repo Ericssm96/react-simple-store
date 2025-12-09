@@ -10,6 +10,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    ErrorBoundary: Error,
     children: [
       {
         index: true,
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         Component: Products
+      },
+      {
+        path: "products/:id",
+        Component: SingleProduct
       }
     ]
   },
