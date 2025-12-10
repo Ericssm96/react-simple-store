@@ -1,4 +1,4 @@
-import { FormInputNoLabel, SubmitButton } from "../components";
+import { FormInputNoLabel, LabeledInput, SubmitButton } from "../components";
 import { UserIcon, LockIcon } from "../components/icons";
 import { Form, Link } from "react-router";
 
