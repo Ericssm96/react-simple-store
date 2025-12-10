@@ -1,6 +1,7 @@
 import { FormInputNoLabel, LabeledInput, SubmitButton } from "../components";
-import { UserIcon, LockIcon } from "../components/icons";
 import { Form, Link } from "react-router";
+import { IoLockClosedOutline } from "react-icons/io5";
+import { CiUser } from "react-icons/ci";
 
 export const Login = () => {
   return (
@@ -8,8 +9,8 @@ export const Login = () => {
       <div className="form-container card w-96 p-10 flex flex-col gap-y-4 shadow-lg">
         <h1 className="text-center text-3xl font-bold text-primary">Login</h1>
         <Form method="POST" className="flex flex-col gap-y-4">
-          <FormInputNoLabel icon={UserIcon} defaultValue="test@test.com" name="identifier" placeholder="E-mail" type="email" />
-          <FormInputNoLabel icon={LockIcon} name="password" placeholder="Password" type="password" />
+          <FormInputNoLabel icon={CiUser} defaultValue="test@test.com" name="identifier" placeholder="E-mail" type="email" />
+          <FormInputNoLabel icon={IoLockClosedOutline} name="password" placeholder="Password" type="password" />
           <SubmitButton colorClass="btn-primary" text="Login" />
           <button type="button" className="btn text-[1rem] btn-lg btn-block btn-secondary uppercase">Guest User</button>
         </Form>
