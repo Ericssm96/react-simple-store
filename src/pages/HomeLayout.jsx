@@ -6,7 +6,9 @@ export const HomeLayout = () => {
       <nav>
         <h1>HomeLayout</h1>
       </nav>
-      <Outlet />
+      <main className="align-element py-20">
+        <Outlet />
+      </main>
     </>
   )
 }
