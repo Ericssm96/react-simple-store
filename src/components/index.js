@@ -1,2 +1,2 @@
 export { FormInputNoLabel } from "./FormInputNoLabel.jsx";
-export { Button } from "./Button.jsx";
+export { SubmitButton } from "./SubmitButton.jsx";
