@@ -2,14 +2,33 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router';
 import { NavLinks } from './NavLinks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const themes = {
+  acid: "acid",
+  dim: "dim"
+}
+
+const getThemeFromLocalStorage = () => {
+  return localStorage.getItem("theme") || themes.acid;
+}
 
 export const Navbar = () => {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(getThemeFromLocalStorage());
+  const [isDarkThemeActive, setIsDarkThemeActive] = useState(theme === "dim");
+  
 
   const handleTheme = () => {
-    setTheme(!theme);
+    const newTheme = theme === themes.acid ? themes.dim : themes.acid;
+    
+    setTheme(newTheme);
   }
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    setIsDarkThemeActive(theme === "dim");
+  }, [theme])
 
   return (
     <nav className="bg-base-200">
@@ -35,7 +54,7 @@ export const Navbar = () => {
         <div className="navbar-end">
           {/* THEME SELECTOR */}
           <label className="swap swap-rotate">
-            <input type="checkbox" onChange={handleTheme} />
+            <input type="checkbox" checked={!isDarkThemeActive} onChange={handleTheme} />
 
             <BsMoonFill className="swap-on h-4 w-4" />
             <BsSunFill className="swap-off h-4 w-4" />

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: acid --default, night;
+  themes: acid --default, dim;
 }
 
 @layer components {
