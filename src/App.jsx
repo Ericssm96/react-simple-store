@@ -5,6 +5,7 @@ import './css/styles.css';
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from 'react-router/dom';
 import { About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct } from "./pages";
+import { loader as landingLoader } from './pages/Landing';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Landing
+        Component: Landing,
+        loader: landingLoader,
+        ErrorBoundary: Error
       },
       {
         path: "about",
