@@ -9,7 +9,7 @@ export const ProductsGrid = () => {
       {
         featuredProducts.map((product) => {
           const {image, title, price} = product.attributes;
-          console.log(product);
+          
           return (
             <Link key={product.id} to={`/products/${product.id}`} className="card w-full shadow-xl hover:shadow-2xl transition duration-300" >
               <figure>
