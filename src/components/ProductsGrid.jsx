@@ -1,4 +1,5 @@
 import { useLoaderData, Link } from "react-router";
+import { formatPrice } from "../utils";
 
 export const ProductsGrid = () => {
   const {featuredProducts} = useLoaderData();
@@ -16,7 +17,7 @@ export const ProductsGrid = () => {
               </figure>
               <div className="card-body items-center text-center">
                 <h2>{title}</h2>
-                <span className="text-secondary">${price}</span>
+                <span className="text-secondary">{formatPrice(price)}</span>
               </div>
             </Link>
           );
