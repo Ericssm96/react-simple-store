@@ -5,3 +5,6 @@ export { Header } from "./Header.jsx";
 export { Navbar } from "./Navbar.jsx";
 export { Hero } from "./Hero.jsx";
 export { ErrorElement } from "./ErrorElement.jsx";
+export { FeaturedProducts } from "./FeaturedProducts.jsx";
+export { SectionTitle } from "./SectionTitle.jsx";
+export { ProductsGrid } from "./ProductsGrid.jsx";

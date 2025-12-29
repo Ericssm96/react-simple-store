@@ -1,24 +1,26 @@
-import { Hero } from "../components";
+import { FeaturedProducts, Hero } from "../components";
 import { customFetch } from "../utils";
 import { useLoaderData } from "react-router";
 
 export const loader = async () => {
   try {
-    const featuredProducts = await customFetch.get("/products?featured=true");
+    const featuredProductsReq = await customFetch.get("/products?featured=true");
+    const featuredProducts = featuredProductsReq.data.data
 
-    return featuredProducts.data.data;
+    return {featuredProducts};
   } catch (e) {
     console.log(e);
-    return [];
+    return {featuredProducts: []};
   }
 }
 
 export const Landing = () => {
-  const featuredProducts = useLoaderData();
+  const {featuredProducts} = useLoaderData();
   console.log(featuredProducts);
   return (
     <>
       <Hero />
+      <FeaturedProducts />
     </>
   )
 }
