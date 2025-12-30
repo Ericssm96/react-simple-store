@@ -17,6 +17,7 @@ export const ProductsGrid = () => {
               </figure>
               <div className="card-body items-center text-center">
                 <h3 className="text-lg font-semibold text-base-content">{title}</h3>
+                <h4 className="text-md font-semibold text-neutral-content">{company}</h4>
                 <span className="text-secondary">{formatPrice(price)}</span>
               </div>
             </Link>
