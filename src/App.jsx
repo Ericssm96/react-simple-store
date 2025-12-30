@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct } from "./pages";
 import { loader as landingLoader } from './pages/Landing';
 import { loader as productLoader } from './pages/SingleProduct';
+import { loader as productsListLoader } from './pages/Products';
 import { ErrorElement } from './components';
 
 const router = createBrowserRouter([
@@ -39,7 +40,8 @@ const router = createBrowserRouter([
       },
       {
         path: "products",
-        Component: Products
+        Component: Products,
+        loader: productsListLoader
       },
       {
         path: "products/:id",
