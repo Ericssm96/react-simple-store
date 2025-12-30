@@ -8,7 +8,7 @@ export const ProductsGrid = () => {
     <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
         productsList.map((product) => {
-          const {image, title, price} = product.attributes;
+          const {image, title, price, company} = product.attributes;
           
           return (
             <Link key={product.id} to={`/products/${product.id}`} className="card w-full shadow-xl hover:shadow-2xl transition duration-300" >
@@ -16,7 +16,7 @@ export const ProductsGrid = () => {
                 <img src={image} alt={title} className="rounded-xl h-64 md:h-48 w-full object-cover" />
               </figure>
               <div className="card-body items-center text-center">
-                <h2>{title}</h2>
+                <h3 className="text-lg font-semibold text-base-content">{title}</h3>
                 <span className="text-secondary">{formatPrice(price)}</span>
               </div>
             </Link>
