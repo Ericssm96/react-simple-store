@@ -7,20 +7,20 @@ export const loader = async () => {
     const featuredProductsReq = await customFetch.get("/products?featured=true");
     const featuredProducts = featuredProductsReq.data.data
 
-    return {featuredProducts};
+    return {productsList: featuredProducts};
   } catch (e) {
     console.log(e);
-    return {featuredProducts: []};
+    return {productsList: []};
   }
 }
 
 export const Landing = () => {
-  const {featuredProducts} = useLoaderData();
-  console.log(featuredProducts);
+  const {productsList} = useLoaderData();
+  
   return (
     <>
       <Hero />
-      <FeaturedProducts />
+      <FeaturedProducts productsList={featuredProducts} />
     </>
   )
 }

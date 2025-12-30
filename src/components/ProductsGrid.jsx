@@ -2,12 +2,12 @@ import { useLoaderData, Link } from "react-router";
 import { formatPrice } from "../utils";
 
 export const ProductsGrid = () => {
-  const {featuredProducts} = useLoaderData();
+  const {productsList} = useLoaderData();
   
   return (
     <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
-        featuredProducts.map((product) => {
+        productsList.map((product) => {
           const {image, title, price} = product.attributes;
           
           return (
