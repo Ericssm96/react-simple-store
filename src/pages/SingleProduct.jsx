@@ -20,6 +20,11 @@ export const SingleProduct = () => {
   const {image, title, price, description, colors, company} = productData.attributes;
   const dollarsAmount = formatPrice(price);
   const [productColor, setProductColor] = useState(colors[0]);
+  const [amount, setAmount] = useState(1);
+
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  }
 
   return (
     <section>
@@ -47,7 +52,7 @@ export const SingleProduct = () => {
           <p className="mt-6 leading-8">{description}</p>
           {/* COLORS */}
           <div className="mt-6">
-            <h4 className="text-md font-medium tracking-wider">Colors</h4>
+            <h4 className="text-md font-medium tracking-wider label">Colors</h4>
             <div className="mt-2">
               {colors.map((color)=>{
                 return (
@@ -55,6 +60,17 @@ export const SingleProduct = () => {
                 )
               })}
             </div>
+          </div>
+          {/* AMOUNT */}
+          <div className="w-full max-w-xs mt-2">
+            <label htmlFor="amount" className="label">
+              <h4 className="text-md font-medium tracking-wider">Amount</h4>
+            </label>
+            <input className="input input-secondary input-md [appearance:textfield] [&::-webkit-outer-spin-button]:mr-1 [&::-webkit-inner-spin-button]:mr-1 [&::-webkit-outer-spin-button]:my-1 [&::-webkit-inner-spin-button]:my-0" type="number" id="amount" value={amount} onChange={handleAmountChange} />
+          </div>
+          {/* CART BTN */}
+          <div className="mt-10">
+            <button className="btn btn-secondary btn-md" onClick={()=>console.log("add to cart was clicked")}>Add to cart</button>
           </div>
         </div>
       </div>
