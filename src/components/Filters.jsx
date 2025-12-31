@@ -41,7 +41,7 @@ export const Filters = () => {
       {/* PRICE */}
       <LabeledRange name="price" labelText="Select price" size="sm" />
       {/* SHIPPING CHECKBOX */}
-      <LabeledCheckbox name="shipping" labelText="Free shipping" defaultChecked="false" size="sm" />
+      <LabeledCheckbox name="shipping" labelText="Free shipping" defaultChecked="" size="sm" />
       {/* BUTTONS */}
       <button type="submit" className="btn btn-primary btn-sm">
         Search
