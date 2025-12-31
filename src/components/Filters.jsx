@@ -1,6 +1,7 @@
 import { Form, useLoaderData, Link } from "react-router";
 import { LabeledInput } from "./LabeledInput";
 import { LabeledSelect } from "./LabeledSelect";
+import { LabeledRange } from "./LabeledRange";
 
 export const Filters = () => {
   const { productsMeta } = useLoaderData();
@@ -36,6 +37,8 @@ export const Filters = () => {
         valuesList={["a-z", "z-a", "high", "low"]}
         size="sm"
       />
+      {/* PRICE */}
+      <LabeledRange name="price" labelText="Select price" size="sm" />
       {/* BUTTONS */}
       <button type="submit" className="btn btn-primary btn-sm">
         Search
