@@ -13,6 +13,10 @@ export const LabeledRange = ({labelText, name, size}) => {
         <span>{formatPrice(selectedPrice)}</span>
       </label>
       <input type="range" step={step} name={name} id={name} min={0} value={selectedPrice} max={maxPrice} onChange={(e) => setSelectedPrice(e.target.value)} className={`range range-primary range-${size}`} />
+      <div className="w-full flex justify-between px-2 mt-2">
+        <span className="font-bold text-md">0</span>
+        <span className="font-bold text-md">Max: {formatPrice(maxPrice)}</span>
+      </div>
     </div>
   )
 }
