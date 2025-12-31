@@ -14,7 +14,8 @@ export const Filters = () => {
         labelText="Category"
         name="category"
         elemId="categorySlct"
-        list={productsMeta.categories}
+        optionsList={productsMeta.categories}
+        valuesList={productsMeta.categories}
         size="sm"
       />
       {/* COMPANIES */}
@@ -22,7 +23,8 @@ export const Filters = () => {
         labelText="Company"
         name="company"
         elemId="companySlct"
-        list={productsMeta.companies}
+        optionsList={productsMeta.companies}
+        valuesList={productsMeta.companies}
         size="sm"
       />
       {/* ORDER */}
@@ -30,7 +32,8 @@ export const Filters = () => {
         labelText="Sort by"
         elemId="sortSlct"
         name="order"
-        list={["A-Z", "Z-A", "Higher price", "Lower price"]}
+        optionsList={["A-Z", "Z-A", "Higher price", "Lower price"]}
+        valuesList={["a-z", "z-a", "high", "low"]}
         size="sm"
       />
       {/* BUTTONS */}
