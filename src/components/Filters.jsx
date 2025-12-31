@@ -2,6 +2,7 @@ import { Form, useLoaderData, Link } from "react-router";
 import { LabeledInput } from "./LabeledInput";
 import { LabeledSelect } from "./LabeledSelect";
 import { LabeledRange } from "./LabeledRange";
+import { LabeledCheckbox } from "./LabeledCheckbox";
 
 export const Filters = () => {
   const { productsMeta } = useLoaderData();
@@ -39,6 +40,8 @@ export const Filters = () => {
       />
       {/* PRICE */}
       <LabeledRange name="price" labelText="Select price" size="sm" />
+      {/* SHIPPING CHECKBOX */}
+      <LabeledCheckbox name="shipping" labelText="Free shipping" defaultChecked="false" size="sm" />
       {/* BUTTONS */}
       <button type="submit" className="btn btn-primary btn-sm">
         Search
