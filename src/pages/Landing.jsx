@@ -14,13 +14,11 @@ export const loader = async () => {
   }
 }
 
-export const Landing = () => {
-  const {productsList} = useLoaderData();
-  
+export const Landing = () => {  
   return (
     <>
       <Hero />
-      <FeaturedProducts productsList={featuredProducts} />
+      <FeaturedProducts />
     </>
   )
 }

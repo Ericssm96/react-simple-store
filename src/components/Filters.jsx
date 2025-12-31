@@ -1,4 +1,4 @@
-import { Form, useLoaderData, Link } from "react-router";
+import { Form, Link } from "react-router";
 import { LabeledInput } from "./LabeledInput";
 
 export const Filters = () => {

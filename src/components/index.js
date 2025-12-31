@@ -12,3 +12,4 @@ export { Filters } from "./Filters.jsx";
 export { PaginationContainer } from "./PaginationContainer.jsx";
 export { ProductsContainer } from "./ProductsContainer.jsx";
 export { ProductsList } from "./ProductsList.jsx";
+export { LabeledSelect } from "./LabeledSelect.jsx";
