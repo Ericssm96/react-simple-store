@@ -7,8 +7,16 @@ import { BsFillGridFill, BsList } from "react-icons/bs";
 export const ProductsContainer = () => {
   const { productsMeta } = useLoaderData();
   const totalProducts = productsMeta.pagination.total;
-  const [layoutMode, setLayoutMode] = useState("grid");
 
+  const getLayoutMode = () => {
+    const comfyStoreLayout = localStorage.getItem("comfyStoreLayoutMode");
+    const newLayout = comfyStoreLayout ? comfyStoreLayout : "grid";
+    
+    return newLayout;
+  }
+
+  const [layoutMode, setLayoutMode] = useState(getLayoutMode());
+    
   const setActiveStyles = (pattern) => {
     return `text-xl btn btn-circle btn-sm transition duration-300 ${pattern === layoutMode ? "btn-primary text-primary-content" : "btn-ghost text-base-content"}`;
   }
@@ -22,10 +30,16 @@ export const ProductsContainer = () => {
         </h4>
 
         <div className="flex gap-x-2">
-          <button type="button" onClick={()=>setLayoutMode("grid")} className={setActiveStyles("grid")}>
+          <button type="button" onClick={()=>{
+            setLayoutMode("grid");
+            localStorage.setItem("comfyStoreLayoutMode", "grid");
+            }} className={setActiveStyles("grid")}>
             <BsFillGridFill />
           </button>
-          <button type="button" onClick={()=>setLayoutMode("list")} className={setActiveStyles("list")}>
+          <button type="button" onClick={()=>{
+            setLayoutMode("list");
+            localStorage.setItem("comfyStoreLayoutMode", "list");
+            }} className={setActiveStyles("list")}>
             <BsList />
           </button>
         </div>
