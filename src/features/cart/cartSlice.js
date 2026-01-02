@@ -33,9 +33,9 @@ const cartSlice = createSlice({
 
       state.numItemsInCart += product.amount;
       state.cartTotal += product.price * product.amount;
-      state.tax = 0.1 * state.cartTotal;
-      state.orderTotal = state.cartTotal + state.shipping + state.tax;
-      localStorage.setItem("comfyCartData", JSON.stringify(state));
+      
+      cartSlice.caseReducers.calculateTotals(state);
+
       toast.success("Item added to cart");
     },
     clearCart: (state) => {
@@ -46,6 +46,11 @@ const cartSlice = createSlice({
     },
     editItem: (state, action) => {
       console.log(action.payload);
+    },
+    calculateTotals: (state) => {
+      state.tax = 0.1 * state.cartTotal;
+      state.orderTotal = state.cartTotal + state.shipping + state.tax;
+      localStorage.setItem("comfyCartData", JSON.stringify(state));
     }
   }
 });
