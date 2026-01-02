@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const defaultState = {
   cartItems: [],
-  numItemsInCart: 9,
+  numItemsInCart: 0,
   cartTotal: 0,
   shipping: 500,
   tax: 0,
@@ -16,6 +16,21 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const { product } = action.payload;
+      const item = state.cartItems.find((item) => {
+        return item.cartID === product.cartJD;
+      });
+      if(item) {
+        item.amount += product.amount;
+      } else {
+        state.cartItems.push(product);
+      }
+
+      state.numItemsInCart += product.amount;
+      state.cartTotal += product.price * product.amount;
+      state.tax = 0.1 * state.cartTotal;
+      state.orderTotal = state.cartTotal + state.shipping + state.tax;
+      // localStorage.setItem("comfyCartData", JSON.stringify(state));
+      toast.success("Item added to cart");
     },
     clearCart: (state) => {
       console.log("clear cart");
