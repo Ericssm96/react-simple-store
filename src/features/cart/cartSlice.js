@@ -10,9 +10,15 @@ const defaultState = {
   orderTotal: 0
 }
 
+const getCartFromLocalStorage = () => {
+  const cartData = JSON.parse(localStorage.getItem("comfyCartData")) || defaultState;
+
+  return cartData;
+}
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: defaultState,
+  initialState: getCartFromLocalStorage(),
   reducers: {
     addItem: (state, action) => {
       const { product } = action.payload;
@@ -29,7 +35,7 @@ const cartSlice = createSlice({
       state.cartTotal += product.price * product.amount;
       state.tax = 0.1 * state.cartTotal;
       state.orderTotal = state.cartTotal + state.shipping + state.tax;
-      // localStorage.setItem("comfyCartData", JSON.stringify(state));
+      localStorage.setItem("comfyCartData", JSON.stringify(state));
       toast.success("Item added to cart");
     },
     clearCart: (state) => {
